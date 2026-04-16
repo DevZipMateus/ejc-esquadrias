@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EJC Esquadrias</title>
+  <meta name="description" content="EJC Esquadrias de Alumínio — fabricação e instalação de esquadrias sob medida e vidros temperados em Sorocaba/SP. Sua residência com mais luz e sofisticação desde 2014.">
+
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <meta property="og:title" content="EJC Esquadrias">
+  <meta property="og:description" content="Fabricação e instalação de esquadrias de alumínio sob medida e vidros temperados em Sorocaba/SP. Qualidade e sofisticação desde 2014.">
+  <meta property="og:image" content="images/og-image.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EJC Esquadrias">
+  <meta name="twitter:description" content="Esquadrias de alumínio sob medida e vidros temperados em Sorocaba/SP.">
+  <meta name="twitter:image" content="images/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --green:       #1A7B1A;
+      --green-dark:  #125412;
+      --green-light: #4DB84D;
+      --green-pale:  #EBF5EB;
+      --gray:        #4A4A4A;
+      --gray-mid:    #757575;
+      --gray-light:  #A8A8A8;
+      --gray-50:     #F8F8F8;
+      --gray-100:    #F0F0F0;
+      --gray-200:    #E0E0E0;
+      --white:       #FFFFFF;
+      --black:       #1A1A1A;
+      --shadow-sm:   0 2px 8px rgba(0,0,0,0.07);
+      --shadow:      0 4px 20px rgba(0,0,0,0.11);
+      --shadow-lg:   0 8px 40px rgba(0,0,0,0.15);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: 72px;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .header-logo img { height: 52px; width: auto; }
+
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a {
+      color: var(--gray);
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--green); }
+    .nav-cta {
+      background: var(--green) !important;
+      color: var(--white) !important;
+      padding: 9px 22px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      font-size: 13px !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--green-dark) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--gray);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    #navMenu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(255,255,255,0.99);
+      backdrop-filter: blur(16px);
+      padding: 12px 24px 28px;
+      flex-direction: column;
+      z-index: 999;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    #navMenu.open { display: flex; }
+    #navMenu a {
+      color: var(--gray);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--gray-200);
+      transition: color 0.2s;
+    }
+    #navMenu a:last-child { border-bottom: none; }
+    #navMenu a:hover { color: var(--green); }
+    #navMenu .mob-cta {
+      margin-top: 8px;
+      background: var(--green);
+      color: var(--white) !important;
+      text-align: center;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      border-bottom: none !important;
+    }
+    #navMenu .mob-cta:hover { background: var(--green-dark); }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      padding-top: 72px;
+      background:
+        linear-gradient(135deg, rgba(18,84,18,0.88) 0%, rgba(26,123,26,0.75) 50%, rgba(18,84,18,0.90) 100%),
+        url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=85') center/cover no-repeat;
+      background-attachment: fixed, fixed;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent 0px, transparent 48px, rgba(255,255,255,0.025) 48px, rgba(255,255,255,0.025) 49px),
+        repeating-linear-gradient(90deg, transparent 0px, transparent 48px, rgba(255,255,255,0.025) 48px, rgba(255,255,255,0.025) 49px);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px 24px 72px;
+      max-width: 860px;
+      width: 100%;
+    }
+    .hero-logo {
+      height: 130px;
+      width: auto;
+      margin: 0 auto 32px;
+      filter: brightness(0) invert(1) drop-shadow(0 4px 24px rgba(0,0,0,0.3));
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.92);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      background: var(--green-light);
+      border-radius: 50%;
+    }
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .hero-title .accent { color: var(--green-light); }
+    .hero-slogan {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(15px, 2.2vw, 22px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.78);
+      font-style: italic;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--white);
+      color: var(--green-dark);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-green:hover { background: var(--green-pale); transform: translateY(-2px); }
+    .btn-outline-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: transparent;
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 14px 30px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.35);
+      transition: all 0.2s;
+    }
+    .btn-outline-hero:hover { border-color: rgba(255,255,255,0.7); color: var(--white); background: rgba(255,255,255,0.08); }
+
+    /* ===== STATS ===== */
+    .stats-bar {
+      background: var(--green-dark);
+      padding: 44px 24px;
+    }
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(34px, 5vw, 52px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-num em { color: var(--green-light); font-style: normal; }
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ===== SECTION BASE ===== */
+    .section { padding: 100px 24px; }
+    .section-tag {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 12px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--green);
+    }
+    .section-tag.left { margin: 0 0 12px; }
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .section-title.dark  { color: var(--black); }
+    .section-title.white { color: var(--white); }
+    .section-sub {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-top: 14px;
+      max-width: 580px;
+    }
+    .section-sub.gray  { color: var(--gray-mid); }
+    .section-sub.light { color: rgba(255,255,255,0.55); }
+    .sec-center { text-align: center; margin-bottom: 64px; }
+    .sec-center .section-tag { margin: 0 auto 12px; }
+    .sec-center .section-sub { margin-left: auto; margin-right: auto; }
+    .divider { width: 48px; height: 3px; background: var(--green); border-radius: 2px; margin-top: 16px; }
+    .divider.center { margin-left: auto; margin-right: auto; }
+
+    /* ===== SOBRE ===== */
+    #sobre { background: var(--gray-50); }
+    .sobre-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .sobre-text {
+      font-size: 15.5px;
+      color: var(--gray-mid);
+      line-height: 1.85;
+      margin-top: 20px;
+    }
+    .sobre-text p + p { margin-top: 14px; }
+    .sobre-text strong { color: var(--black); font-weight: 600; }
+    .sobre-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .hl-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 20px;
+      border-left: 3px solid var(--green);
+      box-shadow: var(--shadow-sm);
+    }
+    .hl-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1;
+    }
+    .hl-label {
+      font-size: 12px;
+      color: var(--gray-mid);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .mvv-stack { display: flex; flex-direction: column; gap: 12px; }
+    .mvv-card {
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .mvv-card.white-bg { background: var(--white); box-shadow: var(--shadow-sm); }
+    .mvv-card.green-bg { background: var(--green); }
+    .mvv-card.dark-bg  { background: var(--black); }
+    .mvv-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+    }
+    .mvv-card.white-bg .mvv-label { color: var(--green); }
+    .mvv-card.green-bg .mvv-label { color: rgba(255,255,255,0.65); }
+    .mvv-card.dark-bg  .mvv-label { color: var(--green-light); }
+    .mvv-text { font-size: 14px; line-height: 1.72; }
+    .mvv-card.white-bg .mvv-text { color: var(--gray-mid); }
+    .mvv-card.green-bg .mvv-text { color: rgba(255,255,255,0.92); }
+    .mvv-card.dark-bg  .mvv-text { color: rgba(255,255,255,0.75); }
+    .values-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+    .val-tag {
+      background: rgba(255,255,255,0.14);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 11px;
+      border-radius: 4px;
+    }
+
+    /* ===== PRODUTOS ===== */
+    #produtos { background: var(--white); }
+    .produtos-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .produto-card {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      transition: transform 0.22s, box-shadow 0.22s;
+      background: var(--white);
+    }
+    .produto-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .prod-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .prod-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(18,84,18,0.7) 100%);
+    }
+    .prod-body { padding: 24px; }
+    .prod-icon {
+      width: 48px; height: 48px;
+      background: var(--green-pale);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+    .prod-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+    .prod-desc { font-size: 13.5px; color: var(--gray-mid); line-height: 1.68; }
+    .prod-list {
+      margin-top: 14px;
+      list-style: none;
+    }
+    .prod-list li {
+      font-size: 13px;
+      color: var(--gray-mid);
+      padding: 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .prod-list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--green-light);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .prod-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+      transition: gap 0.2s;
+    }
+    .prod-cta:hover { gap: 10px; }
+
+    /* ===== DEPOIMENTOS ===== */
+    #depoimentos {
+      background:
+        linear-gradient(rgba(18,84,18,0.92), rgba(18,84,18,0.92)),
+        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80') center/cover no-repeat;
+      background-attachment: fixed, fixed;
+    }
+    .dep-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .dep-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 28px;
+      transition: background 0.25s;
+    }
+    .dep-card:hover { background: rgba(255,255,255,0.12); }
+    .dep-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 14px;
+    }
+    .dep-stars i { color: #FFD700; font-size: 14px; }
+    .dep-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.72;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .dep-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .dep-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .dep-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .dep-date { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+    /* ===== CONTATO ===== */
+    #contato { background: var(--gray-50); }
+    .contato-wrap { max-width: 1100px; margin: 0 auto; }
+    .contato-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 52px;
+    }
+    .contato-cards { display: flex; flex-direction: column; gap: 14px; }
+    .contato-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 20px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .contato-card:hover { border-color: var(--green); box-shadow: var(--shadow-sm); }
+    .cc-icon {
+      width: 44px; height: 44px;
+      background: var(--green-pale);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .cc-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-light);
+      margin-bottom: 5px;
+    }
+    .cc-value { font-size: 14.5px; font-weight: 500; color: var(--black); line-height: 1.55; }
+    .cc-value a { color: var(--green); }
+    .cc-value a:hover { text-decoration: underline; }
+
+    .wa-cta-wrap { margin-top: 20px; }
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #22C55E;
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 15px 36px;
+      border-radius: 8px;
+      width: 100%;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(34,197,94,0.25);
+    }
+    .btn-whatsapp:hover { background: #16A34A; transform: translateY(-2px); }
+
+    .mapa-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gray-200);
+    }
+    .mapa-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 420px;
+      border: none;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--black);
+      border-top: 3px solid var(--green);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .footer-logo { height: 56px; margin: 0 auto 18px; filter: brightness(0) invert(1); }
+    .footer-txt { font-size: 12px; color: rgba(255,255,255,0.28); line-height: 2; }
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .footer-social {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.55);
+      font-size: 15px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-social:hover { background: var(--green); color: var(--white); }
+
+    /* ===== WA FLOAT ===== */
+    .wa-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 900;
+      width: 56px; height: 56px;
+      background: #22C55E;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(34,197,94,0.38);
+      text-decoration: none;
+    }
+
+    /* ===== REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== ANIMAÇÕES HERO ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes dotPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(1.7); }
+    }
+    .anim-1 { animation: fadeUp 0.75s cubic-bezier(0.22,1,0.36,1) 0.05s both; }
+    .anim-2 { animation: fadeUp 0.75s cubic-bezier(0.22,1,0.36,1) 0.20s both; }
+    .anim-3 { animation: fadeUp 0.75s cubic-bezier(0.22,1,0.36,1) 0.35s both; }
+    .anim-4 { animation: fadeUp 0.75s cubic-bezier(0.22,1,0.36,1) 0.48s both; }
+    .anim-5 { animation: fadeUp 0.75s cubic-bezier(0.22,1,0.36,1) 0.60s both; }
+    .badge-dot { animation: dotPulse 2.2s ease-in-out infinite; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (min-width: 1440px) {
+      header { padding: 0 64px; }
+      .section { padding: 120px 40px; }
+    }
+
+    @media (max-width: 1023px) {
+      header { padding: 0 28px; }
+      .sobre-wrap { grid-template-columns: 1fr; gap: 44px; }
+      .mvv-stack { flex-direction: row; flex-wrap: wrap; }
+      .mvv-stack .mvv-card { flex: 1 1 200px; }
+      .produtos-grid { grid-template-columns: 1fr 1fr; }
+      .section { padding: 80px 24px; }
+      #hero, #depoimentos {
+        background-attachment: scroll, scroll;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      header { height: 64px; padding: 0 20px; }
+      #navMenu { top: 64px; }
+      #hero { padding-top: 64px; }
+      .hero-inner { padding: 18px 20px 56px; }
+      .hero-logo { height: 100px; margin-bottom: 24px; }
+      .hero-btns { flex-direction: column; align-items: center; gap: 10px; }
+      .btn-green, .btn-outline-hero { width: 100%; max-width: 300px; justify-content: center; }
+      .stats-bar { padding: 36px 20px; }
+      .stats-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 16px; }
+      .section { padding: 64px 20px; }
+      .sec-center { margin-bottom: 48px; }
+      .sobre-highlights { grid-template-columns: 1fr 1fr; }
+      .mvv-stack { flex-direction: column; }
+      .mvv-stack .mvv-card { flex: unset; }
+      .produtos-grid { grid-template-columns: 1fr 1fr; }
+      .dep-grid { grid-template-columns: 1fr; }
+      .contato-layout { grid-template-columns: 1fr; gap: 36px; }
+      .mapa-wrap iframe { height: 300px; }
+      .wa-float { bottom: 20px; right: 16px; width: 50px; height: 50px; }
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 0 16px; }
+      .header-logo img { height: 40px; }
+      .hero-inner { padding: 12px 16px 48px; }
+      .hero-logo { height: 80px; margin-bottom: 20px; }
+      .hero-badge { font-size: 10px; padding: 5px 12px; }
+      .stats-bar { padding: 28px 16px; }
+      .stats-inner { gap: 18px 10px; }
+      .stat-num { font-size: clamp(26px, 7vw, 38px); }
+      .section { padding: 52px 16px; }
+      .sec-center { margin-bottom: 40px; }
+      .sobre-highlights { grid-template-columns: 1fr 1fr; }
+      .hl-num { font-size: 22px; }
+      .hl-card { padding: 16px; }
+      .produtos-grid { grid-template-columns: 1fr; }
+      .prod-img { height: 180px; }
+      .dep-grid { grid-template-columns: 1fr; }
+      .btn-whatsapp { font-size: 14px; padding: 14px 24px; }
+      .mapa-wrap iframe { height: 260px; }
+      .wa-float { bottom: 16px; right: 12px; width: 48px; height: 48px; }
+    }
+
+    @media (max-width: 360px) {
+      header { padding: 0 12px; }
+      .header-logo img { height: 34px; }
+      .hero-inner { padding: 8px 14px 40px; }
+      .hero-logo { height: 68px; margin-bottom: 16px; }
+      .section { padding: 44px 14px; }
+      .sobre-highlights { grid-template-columns: 1fr; }
+      .hl-card { padding: 14px; }
+      .hl-num { font-size: 20px; }
+      .produtos-grid { grid-template-columns: 1fr; }
+      .mapa-wrap iframe { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <a href="#hero" class="header-logo">
+    <img src="images/logo.png" alt="EJC Esquadrias de Alumínio">
+  </a>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#contato" class="nav-cta">Fale conosco</a>
+  </nav>
+  <button class="hamburger" id="menuBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav id="navMenu">
+  <a href="#sobre"        onclick="closeMenu()">Sobre</a>
+  <a href="#produtos"     onclick="closeMenu()">Produtos</a>
+  <a href="#depoimentos"  onclick="closeMenu()">Depoimentos</a>
+  <a href="#contato"      onclick="closeMenu()">Contato</a>
+  <a href="https://wa.me/5515996163053?text=Olá! Gostaria de mais informações sobre esquadrias de alumínio." target="_blank" onclick="closeMenu()" class="mob-cta">
+    <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+  </a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <img src="images/logo.png" alt="EJC Esquadrias" class="hero-logo anim-1">
+    <div class="hero-badge anim-2">
+      <span class="badge-dot"></span>
+      Sorocaba/SP — Desde 2014
+    </div>
+    <h1 class="hero-title anim-3">EJC <span class="accent">Esquadrias</span></h1>
+    <h2 class="hero-slogan anim-4">"Sua residência com mais luz e sofisticação"</h2>
+    <div class="hero-btns anim-5">
+      <a href="https://wa.me/5515996163053?text=Olá! Gostaria de um orçamento para esquadrias de alumínio." class="btn-green" target="_blank">
+        <i class="fab fa-whatsapp"></i> Solicitar orçamento
+      </a>
+      <a href="#produtos" class="btn-outline-hero">
+        <i class="fas fa-th-large"></i> Ver produtos
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat reveal">
+      <div class="stat-num">+<em>10</em></div>
+      <div class="stat-label">Anos de mercado</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num"><em>2014</em></div>
+      <div class="stat-label">Fundada em</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num"><em>100%</em></div>
+      <div class="stat-label">Sob medida</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num"><em>SP</em></div>
+      <div class="stat-label">Sorocaba e região</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SOBRE ===== -->
+<section id="sobre" class="section">
+  <div class="sobre-wrap">
+    <div class="sobre-left">
+      <span class="section-tag left">Nossa história</span>
+      <h2 class="section-title dark">Referência em esquadrias<br>de alumínio</h2>
+      <div class="divider"></div>
+      <div class="sobre-text">
+        <p>A <strong>EJC Esquadrias</strong> surgiu em <strong>2014</strong> com a missão de levar ao mercado uma empresa de esquadrias de alumínio focada em qualidade e inovação.</p>
+        <p>Em <strong>2016</strong>, expandimos nossa atuação incorporando a venda e instalação de <strong>vidros temperados</strong> — incluindo engenharia, box e envidraçamento de sacada — tornando-nos uma solução completa para projetos residenciais e comerciais.</p>
+        <p>Com mais de 10 anos de atuação em Sorocaba e região, nos consolidamos como referência em atendimento personalizado, produtos sob medida e excelência na instalação.</p>
+      </div>
+      <div class="sobre-highlights">
+        <div class="hl-card reveal">
+          <div class="hl-num">2014</div>
+          <div class="hl-label">Ano de fundação</div>
+        </div>
+        <div class="hl-card reveal">
+          <div class="hl-num">2016</div>
+          <div class="hl-label">Expansão para vidros temperados</div>
+        </div>
+        <div class="hl-card reveal">
+          <div class="hl-num">Al+V</div>
+          <div class="hl-label">Alumínio e vidro temperado</div>
+        </div>
+        <div class="hl-card reveal">
+          <div class="hl-num">SP</div>
+          <div class="hl-label">Sorocaba e região</div>
+        </div>
+      </div>
+    </div>
+    <div class="sobre-right">
+      <div class="mvv-stack">
+        <div class="mvv-card white-bg reveal">
+          <div class="mvv-label">Missão</div>
+          <div class="mvv-text">Fabricar e comercializar esquadrias de alumínio, prezando pela qualidade e inovação dos produtos, bem como pela excelência no relacionamento com clientes, fornecedores e colaboradores.</div>
+        </div>
+        <div class="mvv-card green-bg reveal">
+          <div class="mvv-label">Visão</div>
+          <div class="mvv-text">Ser referência no fornecimento de esquadrias de alumínio em Sorocaba e região, promovendo maior funcionalidade e beleza na decoração de ambientes residenciais e comerciais.</div>
+        </div>
+        <div class="mvv-card dark-bg reveal">
+          <div class="mvv-label">Valores</div>
+          <div class="values-tags">
+            <span class="val-tag">Respeito</span>
+            <span class="val-tag">Dedicação</span>
+            <span class="val-tag">Comprometimento</span>
+            <span class="val-tag">Transparência</span>
+            <span class="val-tag">Foco no cliente</span>
+            <span class="val-tag">Qualidade</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUTOS ===== -->
+<section id="produtos" class="section">
+  <div class="sec-center reveal">
+    <span class="section-tag">O que oferecemos</span>
+    <h2 class="section-title dark">Produtos e serviços</h2>
+    <div class="divider center"></div>
+    <p class="section-sub gray">Soluções completas em alumínio e vidro temperado para residências e comércios, com fabricação sob medida e instalação especializada.</p>
+  </div>
+  <div class="produtos-grid">
+
+    <div class="produto-card reveal">
+      <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80');">
+        <div class="prod-img-overlay"></div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-icon"><i class="fas fa-border-all"></i></div>
+        <div class="prod-name">Esquadrias de alumínio</div>
+        <div class="prod-desc">Fabricação e instalação de esquadrias de alumínio sob medida, com perfis de alta resistência e acabamento impecável.</div>
+        <ul class="prod-list">
+          <li>Janelas e portas</li>
+          <li>Fachadas e coberturas</li>
+          <li>Divisórias e fechamentos</li>
+          <li>Sob medida para qualquer projeto</li>
+        </ul>
+        <a href="https://wa.me/5515996163053?text=Olá! Tenho interesse em esquadrias de alumínio. Podem me ajudar?" class="prod-cta" target="_blank">Solicitar orçamento <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="produto-card reveal">
+      <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&q=80');">
+        <div class="prod-img-overlay"></div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-icon"><i class="fas fa-vector-square"></i></div>
+        <div class="prod-name">Vidros temperados</div>
+        <div class="prod-desc">Fornecimento e instalação de vidros temperados para diversas aplicações, com segurança e elegância.</div>
+        <ul class="prod-list">
+          <li>Engenharia de vidro</li>
+          <li>Box para banheiro</li>
+          <li>Envidraçamento de sacada</li>
+          <li>Guarda-corpos e divisórias</li>
+        </ul>
+        <a href="https://wa.me/5515996163053?text=Olá! Tenho interesse em vidros temperados. Podem me ajudar?" class="prod-cta" target="_blank">Solicitar orçamento <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="produto-card reveal">
+      <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80');">
+        <div class="prod-img-overlay"></div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-icon"><i class="fas fa-tools"></i></div>
+        <div class="prod-name">Manutenção</div>
+        <div class="prod-desc">Serviços especializados de manutenção para esquadrias de alumínio e vidro temperado, garantindo durabilidade e perfeito funcionamento.</div>
+        <ul class="prod-list">
+          <li>Regulagem de esquadrias</li>
+          <li>Troca de borrachas e acessórios</li>
+          <li>Reparos em vidros</li>
+          <li>Atendimento em toda Sorocaba</li>
+        </ul>
+        <a href="https://wa.me/5515996163053?text=Olá! Preciso de manutenção em esquadrias ou vidros. Podem me ajudar?" class="prod-cta" target="_blank">Agendar visita <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== DEPOIMENTOS ===== -->
+<section id="depoimentos" class="section">
+  <div class="sec-center reveal">
+    <span class="section-tag" style="color:rgba(255,255,255,0.7);">Avaliações reais</span>
+    <h2 class="section-title white">O que nossos clientes dizem</h2>
+    <div class="divider center"></div>
+    <p class="section-sub light">Mais de 10 anos entregando qualidade. Veja o que quem já contratou a EJC tem a dizer.</p>
+  </div>
+  <div class="dep-grid">
+
+    <div class="dep-card reveal">
+      <div class="dep-stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <p class="dep-text">"Atendimento excelente, produtos de primeira linha. Parabéns! Técnico muito atencioso. Obrigado."</p>
+      <div class="dep-author">
+        <div class="dep-avatar">M</div>
+        <div>
+          <div class="dep-name">MENC Manutenção</div>
+          <div class="dep-date">Google · março 2024</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card reveal">
+      <div class="dep-stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <p class="dep-text">"Fui muito bem atendido. Meu serviço ficou perfeito. Eu super indico!"</p>
+      <div class="dep-author">
+        <div class="dep-avatar">P</div>
+        <div>
+          <div class="dep-name">Paulo Serafim</div>
+          <div class="dep-date">Google · março 2024</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card reveal">
+      <div class="dep-stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <p class="dep-text">"Excelente qualidade, muito bom material. Atendimento, sem palavras. Super indico!"</p>
+      <div class="dep-author">
+        <div class="dep-avatar">M</div>
+        <div>
+          <div class="dep-name">Marco Aurélio</div>
+          <div class="dep-date">Google · março 2024</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card reveal">
+      <div class="dep-stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <p class="dep-text">"Melhor trabalho dessa natureza e melhor atendimento. Super profissional, excelência e qualidade."</p>
+      <div class="dep-author">
+        <div class="dep-avatar">E</div>
+        <div>
+          <div class="dep-name">Edson Diogo</div>
+          <div class="dep-date">Google · março 2024</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CONTATO ===== -->
+<section id="contato" class="section">
+  <div class="contato-wrap">
+    <div class="sec-center reveal">
+      <span class="section-tag">Fale conosco</span>
+      <h2 class="section-title dark">Entre em contato</h2>
+      <div class="divider center"></div>
+      <p class="section-sub gray">Solicite seu orçamento sem compromisso. Atendemos Sorocaba e toda a região.</p>
+    </div>
+    <div class="contato-layout">
+      <div>
+        <div class="contato-cards">
+          <div class="contato-card reveal">
+            <div class="cc-icon"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <div class="cc-label">WhatsApp</div>
+              <div class="cc-value"><a href="https://wa.me/5515996163053" target="_blank">(15) 99616-3053</a></div>
+            </div>
+          </div>
+          <div class="contato-card reveal">
+            <div class="cc-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="cc-label">E-mail</div>
+              <div class="cc-value"><a href="mailto:ejcesquadrias@gmail.com">ejcesquadrias@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contato-card reveal">
+            <div class="cc-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <div class="cc-label">Horário de atendimento</div>
+              <div class="cc-value">Segunda a sexta — 8h às 17h</div>
+            </div>
+          </div>
+          <div class="contato-card reveal">
+            <div class="cc-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <div class="cc-label">Endereço</div>
+              <div class="cc-value">Av. Riusaku Kanizawa, 1.138<br>Jd. California · CEP 18071-286<br>Sorocaba – SP</div>
+            </div>
+          </div>
+        </div>
+        <div class="wa-cta-wrap">
+          <a href="https://wa.me/5515996163053?text=Olá! Gostaria de solicitar um orçamento para esquadrias de alumínio." class="btn-whatsapp" target="_blank">
+            <i class="fab fa-whatsapp" style="font-size:22px;"></i>
+            Solicitar orçamento agora
+          </a>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:16px;justify-content:center;">
+          <a href="https://instagram.com/ejcesquadriasdealuminio" target="_blank" style="display:inline-flex;align-items:center;gap:7px;color:var(--gray-mid);font-size:13px;transition:color 0.2s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--gray-mid)'">
+            <i class="fab fa-instagram"></i> @ejcesquadriasdealuminio
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100063590800201" target="_blank" style="display:inline-flex;align-items:center;gap:7px;color:var(--gray-mid);font-size:13px;transition:color 0.2s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--gray-mid)'">
+            <i class="fab fa-facebook"></i> Facebook
+          </a>
+        </div>
+      </div>
+      <div class="mapa-wrap reveal">
+        <iframe
+          src="https://maps.google.com/maps?q=Av.+Riusaku+Kanizawa+1138+Sorocaba+SP&output=embed"
+          title="Localização EJC Esquadrias"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <img src="images/logo.png" alt="EJC Esquadrias" class="footer-logo">
+  <div class="footer-socials">
+    <a href="https://instagram.com/ejcesquadriasdealuminio" target="_blank" class="footer-social" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=100063590800201" target="_blank" class="footer-social" aria-label="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://wa.me/5515996163053" target="_blank" class="footer-social" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+  <p class="footer-txt">
+    © 2026 EJC Esquadrias de Alumínio · CNPJ 55.646.480/0001-54<br>
+    Av. Riusaku Kanizawa, 1.138 · Jd. California · Sorocaba/SP · Seg–Sex 8h–17h
+  </p>
+</footer>
+
+<!-- Rodapé MonteSite - Atualização Automática -->
+<div id="montesite-footer-badge"></div>
+<script src="https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe"></script>
+
+<!-- WhatsApp flutuante -->
+<a href="https://wa.me/5515996163053" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg width="28" height="28" fill="#fff" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.054 1.49 5.763L.02 23.5l5.891-1.546A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.657-.502-5.178-1.379l-.371-.22-3.496.917.935-3.41-.241-.384A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg>
+</a>
+
+<script>
+  // ===== MENU =====
+  const menuBtn = document.getElementById('menuBtn');
+  const navMenu = document.getElementById('navMenu');
+  menuBtn.addEventListener('click', () => navMenu.classList.toggle('open'));
+  function closeMenu() { navMenu.classList.remove('open'); }
+  document.addEventListener('click', (e) => {
+    if (!menuBtn.contains(e.target) && !navMenu.contains(e.target)) navMenu.classList.remove('open');
+  });
+
+  // ===== STAGGER NOS GRIDS =====
+  ['.produtos-grid', '.dep-grid', '.sobre-highlights', '.stats-inner', '.mvv-stack', '.contato-cards'].forEach(sel => {
+    const grid = document.querySelector(sel);
+    if (!grid) return;
+    grid.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = (i * 0.09) + 's';
+    });
+  });
+
+  // ===== CONTADOR STATS =====
+  const statsAnimated = new Set();
+  function animateCount(el, target, prefix, suffix) {
+    const dur = 1800;
+    let start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.floor(e * target) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // ===== REVEAL =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      if (el.classList.contains('reveal')) el.classList.add('visible');
+      if (el.classList.contains('stat') && !statsAnimated.has(el)) {
+        statsAnimated.add(el);
+        const em = el.querySelector('em');
+        if (!em) return;
+        const txt = em.textContent.trim();
+        if (txt === '10')    animateCount(em, 10,  '', '');
+        else if (txt === '2014') animateCount(em, 2014, '', '');
+        else if (txt === '100%') animateCount(em, 100, '', '%');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .stat').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
