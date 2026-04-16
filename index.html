@@ -895,6 +895,115 @@
     @media (max-width: 360px) {
       .galeria-grid { columns: 1; }
     }
+
+    /* ===== EFEITOS EXTRAS ===== */
+
+    /* Logo hero flutua */
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0)   drop-shadow(0 4px 24px rgba(0,0,0,0.3)); }
+      50%       { transform: translateY(-9px) drop-shadow(0 8px 32px rgba(0,0,0,0.4)); }
+    }
+    .hero-logo {
+      animation:
+        fadeUp   0.75s cubic-bezier(0.22,1,0.36,1) 0.05s both,
+        logoFloat 4.5s ease-in-out 0.9s infinite;
+    }
+
+    /* Shimmer no título hero */
+    @keyframes textShimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    .hero-title .accent {
+      background: linear-gradient(90deg, #4DB84D 0%, #e0ffe0 44%, #4DB84D 80%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: textShimmer 3.6s linear 1s infinite;
+    }
+
+    /* Pulse no botão WhatsApp flutuante */
+    @keyframes waPulse {
+      0%   { box-shadow: 0 4px 20px rgba(34,197,94,0.38), 0 0 0 0   rgba(34,197,94,0.52); }
+      70%  { box-shadow: 0 4px 20px rgba(34,197,94,0.38), 0 0 0 18px rgba(34,197,94,0); }
+      100% { box-shadow: 0 4px 20px rgba(34,197,94,0.38), 0 0 0 0   rgba(34,197,94,0); }
+    }
+    .wa-float { animation: waPulse 2.6s ease-out infinite; }
+
+    /* Reveal esquerda / direita */
+    .reveal-left  { opacity: 0; transform: translateX(-38px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-right { opacity: 0; transform: translateX( 38px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* Reveal com zoom */
+    .reveal-scale { opacity: 0; transform: scale(0.92); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+    /* Divider anima a largura */
+    .divider {
+      width: 48px;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.75s cubic-bezier(0.22,1,0.36,1) 0.22s;
+    }
+    .divider.center { transform-origin: center center; }
+    .divider.visible { transform: scaleX(1); }
+
+    /* Shine sweep nos cards de produto */
+    .produto-card { position: relative; }
+    .produto-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -110%;
+      width: 55%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.09), transparent);
+      transition: left 0.55s ease;
+      pointer-events: none;
+    }
+    .produto-card:hover::after { left: 160%; }
+
+    /* Ícone de contato gira levemente no hover */
+    .cc-icon { transition: background 0.25s, color 0.25s, transform 0.28s; }
+    .contato-card:hover .cc-icon {
+      background: var(--green);
+      color: var(--white);
+      transform: scale(1.12) rotate(-6deg);
+    }
+
+    /* Highlight nos cards de destaque */
+    .hl-card { transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s; }
+    .hl-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--green); }
+
+    /* Brilho nos números de stat */
+    .stat-num em { text-shadow: 0 0 28px rgba(77,184,77,0.55); }
+
+    /* MVP cards hover lift */
+    .mvv-card { transition: transform 0.24s, box-shadow 0.24s; }
+    .mvv-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+    /* Galeria — itens entram com fade-up */
+    .gal-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.42s ease, transform 0.42s ease;
+    }
+    .gal-item.visible { opacity: 1; transform: translateY(0); }
+
+    /* Footer social ícone com spin ao hover */
+    .footer-social { transition: background 0.2s, color 0.2s, transform 0.3s; }
+    .footer-social:hover { background: var(--green); color: var(--white); transform: rotate(8deg) scale(1.1); }
+
+    /* Prod-cta seta anima */
+    .prod-cta i { transition: transform 0.22s; }
+    .prod-cta:hover i { transform: translateX(5px); }
+
+    /* Botão hero outline shimmer borda */
+    @keyframes borderGlow {
+      0%, 100% { border-color: rgba(255,255,255,0.35); }
+      50%       { border-color: rgba(255,255,255,0.75); }
+    }
+    .btn-outline-hero { animation: borderGlow 2.8s ease-in-out infinite; }
   </style>
 </head>
 <body>
@@ -974,7 +1083,7 @@
 <!-- ===== SOBRE ===== -->
 <section id="sobre" class="section">
   <div class="sobre-wrap">
-    <div class="sobre-left">
+    <div class="sobre-left reveal-left">
       <span class="section-tag left">Nossa história</span>
       <h2 class="section-title dark">Referência em esquadrias<br>de alumínio</h2>
       <div class="divider"></div>
@@ -1002,7 +1111,7 @@
         </div>
       </div>
     </div>
-    <div class="sobre-right">
+    <div class="sobre-right reveal-right">
       <div class="mvv-stack">
         <div class="mvv-card white-bg reveal">
           <div class="mvv-label">Missão</div>
@@ -1283,7 +1392,7 @@
           </a>
         </div>
       </div>
-      <div class="mapa-wrap reveal">
+      <div class="mapa-wrap reveal-scale">
         <iframe
           src="https://maps.google.com/maps?q=Av.+Riusaku+Kanizawa+1138+Sorocaba+SP&output=embed"
           title="Localização EJC Esquadrias"
@@ -1358,40 +1467,78 @@
     });
   });
 
+  // ===== STAGGER GALERIA =====
+  var galGrid = document.querySelector('.galeria-grid');
+  if (galGrid) {
+    galGrid.querySelectorAll('.gal-item').forEach(function(el, i) {
+      el.style.transitionDelay = (i % 10 * 0.045) + 's';
+    });
+  }
+
   // ===== CONTADOR STATS =====
-  const statsAnimated = new Set();
+  var statsAnimated = new Set();
   function animateCount(el, target, prefix, suffix) {
-    const dur = 1800;
-    let start = null;
+    var dur = 1900;
+    var start = null;
     function step(ts) {
       if (!start) start = ts;
-      const p = Math.min((ts - start) / dur, 1);
-      const e = 1 - Math.pow(1 - p, 3);
+      var p = Math.min((ts - start) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 3);
       el.textContent = prefix + Math.floor(e * target) + suffix;
       if (p < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
   }
 
-  // ===== REVEAL =====
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
+  // ===== REVEAL (todas as classes) =====
+  var REVEAL_CLASSES = ['reveal', 'reveal-left', 'reveal-right', 'reveal-scale', 'divider', 'gal-item'];
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
       if (!e.isIntersecting) return;
-      const el = e.target;
-      if (el.classList.contains('reveal')) el.classList.add('visible');
+      var el = e.target;
+      REVEAL_CLASSES.forEach(function(cls) {
+        if (el.classList.contains(cls)) el.classList.add('visible');
+      });
       if (el.classList.contains('stat') && !statsAnimated.has(el)) {
         statsAnimated.add(el);
-        const em = el.querySelector('em');
+        var em = el.querySelector('em');
         if (!em) return;
-        const txt = em.textContent.trim();
-        if (txt === '10')    animateCount(em, 10,  '', '');
+        var txt = em.textContent.trim();
+        if (txt === '10')    animateCount(em, 10,   '', '');
         else if (txt === '2014') animateCount(em, 2014, '', '');
-        else if (txt === '100%') animateCount(em, 100, '', '%');
+        else if (txt === '100%') animateCount(em, 100,  '', '%');
       }
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.reveal, .stat').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .divider, .gal-item, .stat')
+    .forEach(function(el) { observer.observe(el); });
+
+  // ===== HEADER SHADOW ON SCROLL =====
+  var header = document.querySelector('header');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 30) {
+      header.style.boxShadow = '0 4px 28px rgba(0,0,0,0.13)';
+    } else {
+      header.style.boxShadow = '0 2px 16px rgba(0,0,0,0.06)';
+    }
+  }, { passive: true });
+
+  // ===== ACTIVE NAV ON SCROLL =====
+  var navLinks = document.querySelectorAll('nav a:not(.nav-cta)');
+  var sectionIds = ['hero','sobre','produtos','banner-divisor','depoimentos','galeria','contato'];
+  window.addEventListener('scroll', function() {
+    var current = '';
+    sectionIds.forEach(function(id) {
+      var sec = document.getElementById(id);
+      if (sec && window.scrollY >= sec.offsetTop - 120) current = id;
+    });
+    navLinks.forEach(function(a) {
+      var href = a.getAttribute('href').replace('#','');
+      a.style.color = (href === current) ? 'var(--green)' : '';
+      a.style.fontWeight = (href === current) ? '600' : '';
+    });
+  }, { passive: true });
 
   // ===== LIGHTBOX =====
   var lbImages = [
