@@ -148,7 +148,7 @@
       padding-top: 72px;
       background:
         linear-gradient(135deg, rgba(18,84,18,0.88) 0%, rgba(26,123,26,0.75) 50%, rgba(18,84,18,0.90) 100%),
-        url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=85') center/cover no-repeat;
+        url('images/midia_21.jpg') center/cover no-repeat;
       background-attachment: fixed, fixed;
       position: relative;
       display: flex;
@@ -478,7 +478,7 @@
     #depoimentos {
       background:
         linear-gradient(rgba(18,84,18,0.92), rgba(18,84,18,0.92)),
-        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80') center/cover no-repeat;
+        url('images/midia_30.jpg') center/cover no-repeat;
       background-attachment: fixed, fixed;
     }
     .dep-grid {
@@ -753,6 +753,148 @@
       .produtos-grid { grid-template-columns: 1fr; }
       .mapa-wrap iframe { height: 220px; }
     }
+
+    /* ===== BANNER DIVISOR ===== */
+    #banner-divisor {
+      background:
+        linear-gradient(rgba(18,84,18,0.84), rgba(18,84,18,0.84)),
+        url('images/midia_40.jpg') center/cover no-repeat;
+      background-attachment: fixed, fixed;
+      padding: 96px 24px;
+      text-align: center;
+    }
+    .banner-inner { max-width: 700px; margin: 0 auto; }
+    .banner-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(26px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin: 10px 0 32px;
+    }
+    .banner-inner .section-tag { color: rgba(255,255,255,0.65); margin: 0 auto 10px; }
+
+    /* ===== GALERIA ===== */
+    #galeria { background: var(--gray-50); }
+    .galeria-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      columns: 4;
+      column-gap: 10px;
+    }
+    .gal-item {
+      break-inside: avoid;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+    .gal-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.35s, opacity 0.3s;
+    }
+    .gal-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(18,84,18,0.52);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gal-item-overlay i { color: var(--white); font-size: 28px; }
+    .gal-item:hover img { transform: scale(1.04); opacity: 0.92; }
+    .gal-item:hover .gal-item-overlay { opacity: 1; }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.96);
+      z-index: 5000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lb-img-wrap {
+      max-width: 88vw;
+      max-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lb-img-wrap img {
+      max-width: 88vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 6px;
+      display: block;
+    }
+    .lb-close {
+      position: fixed;
+      top: 18px; right: 22px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: white;
+      font-size: 20px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5001;
+      transition: background 0.2s;
+    }
+    .lb-close:hover { background: rgba(255,255,255,0.22); }
+    .lb-prev, .lb-next {
+      position: fixed;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: white;
+      font-size: 17px;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5001;
+      transition: background 0.2s;
+    }
+    .lb-prev { left: 14px; }
+    .lb-next { right: 14px; }
+    .lb-prev:hover, .lb-next:hover { background: rgba(255,255,255,0.2); }
+    .lb-counter {
+      position: fixed;
+      bottom: 18px;
+      left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,0.45);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1023px) {
+      #banner-divisor { background-attachment: scroll, scroll; padding: 72px 24px; }
+      .galeria-grid { columns: 3; }
+    }
+    @media (max-width: 768px) {
+      .galeria-grid { columns: 2; column-gap: 8px; }
+      .gal-item { margin-bottom: 8px; }
+      #banner-divisor { padding: 60px 20px; }
+    }
+    @media (max-width: 480px) {
+      .galeria-grid { columns: 2; column-gap: 6px; }
+      .gal-item { margin-bottom: 6px; border-radius: 7px; }
+      #banner-divisor { padding: 48px 16px; }
+    }
+    @media (max-width: 360px) {
+      .galeria-grid { columns: 1; }
+    }
   </style>
 </head>
 <body>
@@ -766,6 +908,7 @@
     <a href="#sobre">Sobre</a>
     <a href="#produtos">Produtos</a>
     <a href="#depoimentos">Depoimentos</a>
+    <a href="#galeria">Galeria</a>
     <a href="#contato" class="nav-cta">Fale conosco</a>
   </nav>
   <button class="hamburger" id="menuBtn" aria-label="Menu">
@@ -778,6 +921,7 @@
   <a href="#produtos"     onclick="closeMenu()">Produtos</a>
   <a href="#depoimentos"  onclick="closeMenu()">Depoimentos</a>
   <a href="#contato"      onclick="closeMenu()">Contato</a>
+  <a href="#galeria"      onclick="closeMenu()">Galeria</a>
   <a href="https://wa.me/5515996163053?text=Olá! Gostaria de mais informações sobre esquadrias de alumínio." target="_blank" onclick="closeMenu()" class="mob-cta">
     <i class="fab fa-whatsapp"></i> Falar no WhatsApp
   </a>
@@ -895,7 +1039,7 @@
   <div class="produtos-grid">
 
     <div class="produto-card reveal">
-      <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80');">
+      <div class="prod-img" style="background-image: url('images/midia_22.jpg');">
         <div class="prod-img-overlay"></div>
       </div>
       <div class="prod-body">
@@ -913,7 +1057,7 @@
     </div>
 
     <div class="produto-card reveal">
-      <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&q=80');">
+      <div class="prod-img" style="background-image: url('images/midia_35.jpg');">
         <div class="prod-img-overlay"></div>
       </div>
       <div class="prod-body">
@@ -931,7 +1075,7 @@
     </div>
 
     <div class="produto-card reveal">
-      <div class="prod-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80');">
+      <div class="prod-img" style="background-image: url('images/midia_28.jpg'); background-position: center 30%;">
         <div class="prod-img-overlay"></div>
       </div>
       <div class="prod-body">
@@ -948,6 +1092,17 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ===== BANNER DIVISOR ===== -->
+<section id="banner-divisor">
+  <div class="banner-inner reveal">
+    <span class="section-tag">Nossos projetos</span>
+    <h2 class="banner-title">Qualidade que transforma ambientes</h2>
+    <a href="#galeria" class="btn-green">
+      <i class="fas fa-images"></i> Ver galeria completa
+    </a>
   </div>
 </section>
 
@@ -1017,6 +1172,58 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ===== GALERIA ===== -->
+<section id="galeria" class="section">
+  <div class="sec-center reveal">
+    <span class="section-tag">Portfólio de obras</span>
+    <h2 class="section-title dark">Galeria de projetos</h2>
+    <div class="divider center"></div>
+    <p class="section-sub gray">Conheça alguns dos projetos realizados pela EJC — esquadrias de alumínio e vidros temperados instalados com excelência em Sorocaba e região.</p>
+  </div>
+  <div class="galeria-grid">
+    <div class="gal-item" onclick="openLightbox(0)"><img src="images/midia_1.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(1)"><img src="images/midia_2.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(2)"><img src="images/midia_3.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(3)"><img src="images/midia_4.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(4)"><img src="images/midia_5.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(5)"><img src="images/midia_6.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(6)"><img src="images/midia_7.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(7)"><img src="images/midia_8.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(8)"><img src="images/midia_9.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(9)"><img src="images/midia_10.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(10)"><img src="images/midia_11.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(11)"><img src="images/midia_12.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(12)"><img src="images/midia_13.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(13)"><img src="images/midia_14.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(14)"><img src="images/midia_15.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(15)"><img src="images/midia_16.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(16)"><img src="images/midia_17.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(17)"><img src="images/midia_18.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(18)"><img src="images/midia_19.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(19)"><img src="images/midia_20.png" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(20)"><img src="images/midia_21.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(21)"><img src="images/midia_22.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(22)"><img src="images/midia_23.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(23)"><img src="images/midia_24.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(24)"><img src="images/midia_25.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(25)"><img src="images/midia_26.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(26)"><img src="images/midia_27.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(27)"><img src="images/midia_28.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(28)"><img src="images/midia_29.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(29)"><img src="images/midia_30.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(30)"><img src="images/midia_31.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(31)"><img src="images/midia_32.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(32)"><img src="images/midia_33.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(33)"><img src="images/midia_34.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(34)"><img src="images/midia_35.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(35)"><img src="images/midia_36.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(36)"><img src="images/midia_37.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(37)"><img src="images/midia_38.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(38)"><img src="images/midia_39.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
+    <div class="gal-item" onclick="openLightbox(39)"><img src="images/midia_40.jpg" alt="Projeto EJC" loading="lazy"><div class="gal-item-overlay"><i class="fas fa-expand"></i></div></div>
   </div>
 </section>
 
@@ -1113,6 +1320,17 @@
 <div id="montesite-footer-badge"></div>
 <script src="https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe"></script>
 
+<!-- ===== LIGHTBOX ===== -->
+<div id="lightbox" class="lightbox" onclick="closeLightboxOnBg(event)">
+  <button class="lb-close" onclick="closeLightbox()" aria-label="Fechar"><i class="fas fa-times"></i></button>
+  <button class="lb-prev" onclick="lbNav(-1)" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+  <div class="lb-img-wrap">
+    <img id="lb-img" src="" alt="Foto EJC Esquadrias">
+  </div>
+  <button class="lb-next" onclick="lbNav(1)" aria-label="Próxima"><i class="fas fa-chevron-right"></i></button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
 <!-- WhatsApp flutuante -->
 <a href="https://wa.me/5515996163053" class="wa-float" target="_blank" aria-label="WhatsApp">
   <svg width="28" height="28" fill="#fff" viewBox="0 0 24 24">
@@ -1174,6 +1392,50 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.reveal, .stat').forEach(el => observer.observe(el));
+
+  // ===== LIGHTBOX =====
+  var lbImages = [
+    'images/midia_1.jpg','images/midia_2.jpg','images/midia_3.jpg','images/midia_4.jpg',
+    'images/midia_5.jpg','images/midia_6.png','images/midia_7.png','images/midia_8.png',
+    'images/midia_9.png','images/midia_10.png','images/midia_11.jpg','images/midia_12.png',
+    'images/midia_13.png','images/midia_14.png','images/midia_15.png','images/midia_16.png',
+    'images/midia_17.png','images/midia_18.png','images/midia_19.png','images/midia_20.png',
+    'images/midia_21.jpg','images/midia_22.jpg','images/midia_23.jpg','images/midia_24.jpg',
+    'images/midia_25.jpg','images/midia_26.jpg','images/midia_27.jpg','images/midia_28.jpg',
+    'images/midia_29.jpg','images/midia_30.jpg','images/midia_31.jpg','images/midia_32.jpg',
+    'images/midia_33.jpg','images/midia_34.jpg','images/midia_35.jpg','images/midia_36.jpg',
+    'images/midia_37.jpg','images/midia_38.jpg','images/midia_39.jpg','images/midia_40.jpg'
+  ];
+  var lbIndex = 0;
+
+  function openLightbox(i) {
+    lbIndex = i;
+    updateLightbox();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeLightboxOnBg(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+  function lbNav(dir) {
+    lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+    updateLightbox();
+  }
+  function updateLightbox() {
+    document.getElementById('lb-img').src = lbImages[lbIndex];
+    document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+  }
+  document.addEventListener('keydown', function(e) {
+    var lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')      closeLightbox();
+    if (e.key === 'ArrowLeft')   lbNav(-1);
+    if (e.key === 'ArrowRight')  lbNav(1);
+  });
 </script>
 </body>
 </html>
